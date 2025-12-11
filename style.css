@@ -1,0 +1,347 @@
+/* --- PENGATURAN GLOBAL DAN FUNGSI SMOOTH SCROLL --- */
+html {
+    scroll-behavior: smooth; 
+}
+
+:root {
+    --primary-color: #3f51b5; /* Biru Indigo */
+    --secondary-color: #ff9800; /* Oranye */
+    --background-light: #f4f4f9; 
+    --text-dark: #333;
+    --text-light: #fff;
+    --card-bg: #fff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    
+    /* === KODE LATAR BELAKANG GAMBAR UNTUK BODY === */
+    background-image: url('images/background_utama.jpg'); /* GANTI NAMA FILE INI JIKA PERLU */
+    background-size: cover; 
+    background-attachment: fixed; /* Membuat gambar tetap saat menggulir */
+    background-repeat: no-repeat;
+    /* =========================================== */
+    
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+
+/* --- HEADER DAN NAVIGASI --- */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-image: url('images/latar_budaya.jpg'); /* Latar Belakang Header */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 30%; 
+    position: relative;
+    z-index: 1;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(63, 81, 181, 0.6); 
+    z-index: 2;
+}
+
+header .container, header h1, header nav {
+    position: relative;
+    z-index: 3;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- SECTION ARSIP & TENTANG KAMI --- */
+.section-arsip, .section-kalender, .section-tentang {
+    padding: 40px 0;
+    /* Menggunakan warna card_bg agar konten terlihat di atas latar belakang gambar */
+    background-color: rgba(231, 231, 231, 0.704); 
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Filter Controls dan Card Pertunjukan tetap sama */
+.filter-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.filter-controls input[type="text"], 
+.filter-controls select {
+    padding: 10px;
+    border: 1px solid #212121b8;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+
+.filter-controls button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-controls button:hover {
+    background-color: #e68900;
+}
+
+/* GRID PERTUNJUKAN */
+.grid-pertunjukan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card-pertunjukan {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.card-pertunjukan:hover {
+    transform: translateY(-5px);
+}
+
+.card-pertunjukan img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #000000;
+}
+
+/* --- KALENDER (Ringkas) --- */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px; 
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-header button {
+    padding: 6px 12px; 
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px; 
+}
+
+.calendar-grid div {
+    background-color: var(--card-bg);
+    padding: 5px; 
+    border-radius: 4px;
+    text-align: center;
+    min-height: 60px; 
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    font-size: 0.9rem;
+}
+
+.day-name {
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: #e8eaf6 !important;
+    padding: 5px 0;
+}
+
+.event-marker {
+    display: block;
+    margin-top: 2px; 
+    font-size: 0.7rem; 
+    color: var(--secondary-color);
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+}
+
+.day-number {
+    font-size: 1rem; 
+    font-weight: 700;
+}
+
+/* --- TENTANG KAMI STYLE --- */
+.section-tentang {
+    text-align: center;
+}
+
+.tentang-content {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+    padding: 0 20px 20px;
+}
+
+.contact-info {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 2px dashed #ccc;
+}
+
+.contact-info h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* --- MODAL DETAIL PERTUNJUKAN --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.7); 
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 10% auto; 
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%; 
+    max-width: 600px; 
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideIn 0.3s ease-out; 
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+#modalBody img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+@keyframes slideIn {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--text-dark);
+    color: var(--background-light);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 40px;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    nav ul {
+        margin-top: 10px;
+    }
+    .filter-controls {
+        flex-direction: column;
+    }
+    .filter-controls input, .filter-controls select, .filter-controls button {
+        width: 100%;
+    }
+    .calendar-grid div {
+        min-height: 60px;
+        padding: 5px;
+        font-size: 0.9rem;
+    }
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+}

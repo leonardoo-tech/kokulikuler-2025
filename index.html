@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelar Seni dan Pertunjukan Lokal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>🎭 Gelar Seni Lokal</h1>
+            <nav>
+                <ul>
+                    <li><a href="#arsip">Arsip Pertunjukan</a></li>
+                    <li><a href="#kalender">Kalender Acara</a></li>
+                    <li><a href="#tentang-kami">Tentang Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="arsip" class="section-arsip">
+            <h2>Arsip Pertunjukan 📚</h2>
+            <div class="filter-controls">
+                <input type="text" id="searchInput" placeholder="Cari nama pertunjukan...">
+                <select id="regionFilter">
+                    <option value="all">Semua Daerah</option>
+                    <option value="jawa">Jawa</option>
+                    <option value="bali">Bali</option>
+                    <option value="sumatera">Sumatera</option>
+                </select>
+                <button id="searchButton">Cari</button>
+            </div>
+            
+            <div id="pertunjukanList" class="grid-pertunjukan">
+                </div>
+        </section>
+
+        <hr>
+
+        <section id="kalender" class="section-kalender">
+            <h2>Kalender Acara ✨</h2>
+            <div class="calendar-header">
+                <button id="prevMonth">← Bulan Sebelumnya</button>
+                <h3 id="currentMonthYear"></h3>
+                <button id="nextMonth">Bulan Berikutnya →</button>
+            </div>
+            <div id="calendarGrid" class="calendar-grid">
+                </div>
+        </section>
+
+        <hr>
+
+        <section id="tentang-kami" class="section-tentang">
+            <h2>Tentang Kami 🌍</h2>
+            <div class="tentang-content">
+                <p>Kami adalah inisiatif nirlaba yang didedikasikan untuk mendokumentasikan, mempromosikan, dan melestarikan kekayaan seni dan budaya lokal Indonesia. Misi kami adalah menjadi jembatan antara generasi muda dan warisan budaya leluhur.</p>
+                <p>Melalui platform ini, kami menyajikan arsip pertunjukan, jadwal acara, dan kisah di balik setiap warisan, mulai dari Tari Saman, Wayang Kulit, hingga Gamelan Bali. Kami percaya bahwa budaya adalah akar bangsa yang harus terus dijaga dan diperkenalkan ke dunia.</p>
+                
+                <div class="contact-info">
+                    <h3>Hubungi Kami</h3>
+                    <p>📧 Email: pesonaindonesia@gmail.com</p>
+                    <p>📍 Alamat: pesona indonesia, mojokerto</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Gelar Seni Lokal. Dibuat dengan semangat melestarikan budaya.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
